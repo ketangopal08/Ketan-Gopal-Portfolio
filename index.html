@@ -72,16 +72,17 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             width: 100vw;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         /* --- LAYOUT GRID --- */
         .container {
             display: grid;
             grid-template-columns: 40% 60%;
-            height: 100%;
+            min-height: 100vh;
             width: 100%;
+            align-items: start;
         }
 
         /* --- LEFT COLUMN --- */
@@ -90,8 +91,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
-            position: relative;
+            height: 100vh;
+            position: sticky;
+            top: 0;
         }
 
         .logo {
@@ -133,13 +135,8 @@
         /* --- RIGHT COLUMN --- */
         .right-panel {
             padding: 50px 30px 50px 150px;
-            height: 100%;
-            overflow-y: auto;
             display: flex;
             flex-direction: column;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            scroll-behavior: smooth;
         }
 
         .page-section {
@@ -151,9 +148,6 @@
             animation: fadeIn 0.5s ease forwards;
         }
 
-        .right-panel::-webkit-scrollbar {
-            display: none;
-        }
 
         .content-wrapper {
             max-width: 500px;
@@ -200,12 +194,9 @@
             letter-spacing: -0.02em;
             color: #111;
 
-            opacity: 0;
-            transform: translateY(100%);
-            filter: blur(5px);
 
-            animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            animation-delay: 0.4s;
+
+
         }
 
         .intro-body {
@@ -215,10 +206,6 @@
             margin-bottom: 50px;
             font-weight: 400;
             /* Uses the Regular file */
-
-            opacity: 0;
-            animation: fadeIn 1.2s ease forwards;
-            animation-delay: 0.6s;
         }
 
         /* --- IMAGE STYLING --- */
@@ -565,6 +552,7 @@
                 padding: 30px;
                 height: auto;
                 margin-bottom: 40px;
+                position: relative;
             }
 
             .right-panel {
@@ -587,6 +575,21 @@
 
             .email-link {
                 font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .about-svg-container {
+                display: none !important;
+            }
+
+            nav {
+                display: none !important;
+            }
+
+            .made-by {
+                right: 0 !important;
+                bottom: 0 !important;
             }
         }
     </style>
@@ -734,9 +737,10 @@
 
                     <div class="contact-container">
                         <p class="reveal-text"
-                            style="line-height: 1.6; color: var(--text-secondary); max-width: 400px;">
-                            I am always open to discussing new projects, creative ideas or opportunities to be part of
-                            your visions.
+                            style="line-height: 1.6; color: var(--text-secondary); max-width: 400px;font-size:clamp(14px, .7vw, 16px);">
+                            I am always open to discussing new projects, creative ideas, or opportunities to be part of
+                            your vision. If you have something exciting in mind, feel free to reach out and let’s
+                            explore how we can bring it to life together.
                         </p>
 
                         <div class="contact-main reveal-on-scroll">
@@ -754,7 +758,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="position:absolute; bottom: -30px; right: -40%; ">
+                    <div class="made-by" style="position:absolute; bottom: -30px; right: -40%; ">
                         <p style="font-size: 14px;color: #ccc;">Made by <span style="color: #999;">Ketan 🖤</span></p>
                     </div>
                 </div>
@@ -771,7 +775,7 @@
 
             // Intersection Observer for Active Link Highlighting & Title Change
             const observerOptions = {
-                root: document.querySelector('.right-panel'),
+                root: null,
                 threshold: 0.3
             };
 
@@ -817,7 +821,7 @@
 
             // Scroll Reveal Observer
             const revealObserverOptions = {
-                root: document.querySelector('.right-panel'),
+                root: null,
                 threshold: 0.2,
                 rootMargin: '0px 0px -100px 0px'
             };
@@ -862,7 +866,10 @@
                             if (entry.isIntersecting) {
                                 entry.target.classList.add('is-visible');
                             } else {
-                                entry.target.classList.remove('is-visible');
+                                // Only reverse animation if scrolling UP (element goes below viewport)
+                                if (entry.boundingClientRect.top > 0) {
+                                    entry.target.classList.remove('is-visible');
+                                }
                             }
                         });
                     }, {
