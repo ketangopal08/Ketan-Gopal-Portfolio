@@ -584,6 +584,21 @@
                 font-size: 1.8rem;
             }
         }
+
+        @media (max-width: 900px) {
+            .about-svg-container {
+                display: none !important;
+            }
+
+            nav {
+                display: none !important;
+            }
+
+            .made-by {
+                right: 0 !important;
+                bottom: 0 !important;
+            }
+        }
     </style>
 </head>
 
@@ -749,7 +764,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="position:absolute; bottom: -30px; right: -40%; ">
+                    <div class="made-by" style="position:absolute; bottom: -30px; right: -40%; ">
                         <p style="font-size: 14px;color: #ccc;">Made by <span style="color: #999;">Ketan 🖤</span></p>
                     </div>
                 </div>
