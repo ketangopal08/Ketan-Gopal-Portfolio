@@ -177,7 +177,7 @@
             text-decoration: none;
             color: #999;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 400;
             transition: color 0.2s;
         }
 
@@ -193,7 +193,7 @@
         }
 
         .intro-headline {
-            font-size: 1.1rem;
+            font-size: clamp(20px, 1.25vw, 26px);
             font-weight: 500;
             /* Uses the Medium file */
             line-height: 1.21;
@@ -377,7 +377,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
 
         .work-title {
@@ -410,9 +410,9 @@
         }
 
         .work-desc {
-            font-size: 0.95rem;
+            font-size: clamp(14px, .7vw, 16px);
             line-height: 1.6;
-            color: #555;
+            color: #292b34;
             max-width: 90%;
         }
 
@@ -622,19 +622,16 @@
                 <div id="about-section" class="page-section">
                     <div class="text-mask">
                         <div class="intro-headline">
-                            Senior Full Stack Developer & Team Leader based in Mumbai, focused on creating complete
+                            Full Stack Developer & Team Leader based in Mumbai, focused on creating complete
                             product
                             experiences.
                         </div>
                     </div>
 
                     <p class="intro-body" id="intro-text">
-                        I believe in the minimal and essential approach, expressed through the search for a balance
-                        between
-                        form, function and meaning. I create products characterized by their own formal and aesthetic
-                        identity, expressed through the simplicity of the form and the iconization of the concept,
-                        placing
-                        the user experience and communication at the center of development.
+                        I believe in crafting with intention—balancing form, function, and meaning through a minimal,
+                        essential approach. Each product I build reflects a unique aesthetic identity, defined by
+                        simplicity and strong conceptual clarity, always centered around the user experience.
                     </p>
 
                     <div class="image-container">
@@ -686,26 +683,30 @@
                     </div>
 
                     <div class="works-list">
-                        <a href="#" class="work-item reveal-on-scroll">
+                        <a href="https://uispace.web.app/" class="work-item reveal-on-scroll">
                             <div class="work-header">
-                                <span class="work-title">E-Commerce Platform</span>
+                                <span class="work-title">UiSpace</span>
                                 <span class="work-arrow">→</span>
                             </div>
-                            <span class="work-meta">Full Stack Development | 2023</span>
+                            <!-- <span class="work-meta">Full Stack Development | 2023</span> -->
                             <p class="work-desc reveal-text">
-                                A complete e-commerce solution built with React and Node.js, featuring real-time
-                                inventory management and secure payment processing.
+                                UiSpace is a developer-friendly library of custom UI components designed to streamline
+                                your web development process. Built with Vue 3, Nuxt 3, and Tailwind CSS, it offers
+                                reusable, customizable, and responsive components to help you create visually appealing
+                                applications with ease.
                             </p>
                         </a>
 
                         <a href="#" class="work-item reveal-on-scroll">
                             <div class="work-header">
-                                <span class="work-title">Portfolio V1</span>
+                                <span class="work-title">Valora</span>
                                 <span class="work-arrow">→</span>
                             </div>
-                            <span class="work-meta">Design & Development | 2022</span>
+                            <!-- <span class="work-meta">Design & Development | 2022</span> -->
                             <p class="work-desc reveal-text">
-                                Previous iteration of my personal portfolio, focusing on minimal design and typography.
+                                A minimal, generic profit-tracking web app (Nuxt 3 + Supabase) that lets you log
+                                profits/losses for anything (stocks, crypto, products, services, gigs) and shows weekly,
+                                monthly, and yearly summaries.
                             </p>
                         </a>
 
@@ -714,7 +715,7 @@
                                 <span class="work-title">Task Management App</span>
                                 <span class="work-arrow">→</span>
                             </div>
-                            <span class="work-meta">Frontend Architecture | 2021</span>
+                            <!-- <span class="work-meta">Frontend Architecture | 2021</span> -->
                             <p class="work-desc reveal-text">
                                 A productivity tool designed to help teams collaborate efficiently, with drag-and-drop
                                 interfaces and real-time updates.
@@ -743,12 +744,13 @@
                         </div>
 
                         <div class="contact-details reveal-on-scroll">
-                            <a href="tel:+919876543210" class="phone-link">+91 98706 55574</a>
+                            <a href="tel:+919870655574" class="phone-link">+91 98706 55574</a>
 
                             <div class="social-links">
-                                <a href="#" class="social-link">LinkedIn</a>
-                                <a href="#" class="social-link">GitHub</a>
-                                <a href="#" class="social-link">Instagram</a>
+                                <a href="https://www.linkedin.com/in/ketan-gopal-85b834136/"
+                                    class="social-link">LinkedIn</a>
+                                <a href="https://github.com/ketangopal08" class="social-link">GitHub</a>
+                                <a href="https://www.instagram.com/exploringframes/" class="social-link">Instagram</a>
                             </div>
                         </div>
                     </div>
