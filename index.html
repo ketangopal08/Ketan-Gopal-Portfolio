@@ -72,16 +72,17 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             width: 100vw;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         /* --- LAYOUT GRID --- */
         .container {
             display: grid;
             grid-template-columns: 40% 60%;
-            height: 100%;
+            min-height: 100vh;
             width: 100%;
+            align-items: start;
         }
 
         /* --- LEFT COLUMN --- */
@@ -90,8 +91,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
-            position: relative;
+            height: 100vh;
+            position: sticky;
+            top: 0;
         }
 
         .logo {
@@ -133,13 +135,8 @@
         /* --- RIGHT COLUMN --- */
         .right-panel {
             padding: 50px 30px 50px 150px;
-            height: 100%;
-            overflow-y: auto;
             display: flex;
             flex-direction: column;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            scroll-behavior: smooth;
         }
 
         .page-section {
@@ -151,9 +148,6 @@
             animation: fadeIn 0.5s ease forwards;
         }
 
-        .right-panel::-webkit-scrollbar {
-            display: none;
-        }
 
         .content-wrapper {
             max-width: 500px;
@@ -565,6 +559,7 @@
                 padding: 30px;
                 height: auto;
                 margin-bottom: 40px;
+                position: relative;
             }
 
             .right-panel {
@@ -771,7 +766,7 @@
 
             // Intersection Observer for Active Link Highlighting & Title Change
             const observerOptions = {
-                root: document.querySelector('.right-panel'),
+                root: null,
                 threshold: 0.3
             };
 
